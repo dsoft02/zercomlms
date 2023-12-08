@@ -56,7 +56,7 @@
 </div>
 
 <div id="viewModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered wd-xl-400" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
           <h6 class="modal-title" id="modal-title"></h6>
