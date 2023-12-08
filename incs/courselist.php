@@ -30,7 +30,7 @@
           $trainingtime =$course['HoursOfTraining'];
           ?>
           <tr>
-            <th scope="row"><a href="courseview.php?courseid=?php echo $CourseID;?>"><?php echo $CourseID;?></a></th>
+            <th scope="row"><a href="courseview.php?courseid=<?php echo $CourseID;?>"><?php echo $CourseID;?></a></th>
             <td><?php echo $CourseTitle;?></td>
             <td><?php echo (empty($LicentDuration))?'1 Year':$LicentDuration;?></td>
             <td><?php echo $trainingtime;?></td>

@@ -8,26 +8,37 @@ $page_to_include='categorieslist.php';
 $categorylist = [];
 $courselist = [];
 $subcategorylist = [];
-if(isset($_GET['category'])){
-    $courselist = getCategoryCourses($_GET['category']);
+if(isset($_GET['category']) && !isset($_GET['subcategory'])){
+    $coursedata = getCategoryCourses($_GET['category']);
     //echo "<pre>";print_r($courselist);echo "</pre><br/>";
-    $status = $courselist['status'];
-    $course_type = $courselist['data']['type'];
+    $status = $coursedata['status'];
+    $course_type = $coursedata['data']['type'];
     //echo "$status $course_type";
     if($course_type == 'SubCategory'){
         $page_to_include='subcategorylist.php';
-        $subcategorylist = $courselist['data']['subCategories'];
+        $subcategorylist = $coursedata['data']['subCategories'];
     }else if($course_type == 'Courses'){
         $page_to_include='courselist.php';
-        $courselist = $courselist['data']['courses'];
+        $courselist = $coursedata['data']['courses'];
     }
 }
 else if(isset($_GET['category']) && isset($_GET['subcategory'])){
     $page_to_include='courselist.php';
     $category_path =$_GET['category'];
     $subcategory_path = $_GET['subcategory'];
-    $urlpath = "?category=$category_path&subcategory=$subcategory_path";
-    $courselist = getSubCategoryCourses($urlpath);
+    $urlpath = "category=$category_path&sub_category=$subcategory_path";
+
+    $coursedata = getSubCategoryCourses($urlpath);
+    //echo "<pre>";print_r($coursedata);echo "</pre><br/>";
+    $status = $coursedata['status'];
+    $course_type = $coursedata['data']['type'];
+    if($course_type == 'SubCategory'){
+        $page_to_include='subcategorylist.php';
+        $subcategorylist = $coursedata['data']['subCategories'];
+    }else if($course_type == 'Courses'){
+        $page_to_include='courselist.php';
+        $courselist = $coursedata['data']['courses'];
+    }
 }
 else{
     $categorylist = getCategories();

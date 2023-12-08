@@ -53,6 +53,7 @@ function getCategoryCourses($path){
 
 function getSubCategoryCourses($path){
     $url = SUBCATEGORY_COURSES_URL.'?'.$path;
+    //echo $url;
     $curl = curl_init($url);
     curl_setopt_array($curl, array(
         CURLOPT_CUSTOMREQUEST => 'GET',
