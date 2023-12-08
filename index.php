@@ -25,7 +25,7 @@ if(isset($_GET['category'])){
 else if(isset($_GET['category']) && isset($_GET['subcategory'])){
     $page_to_include='courselist.php';
     $category_path =$_GET['category'];
-    $subcategory_path = $_GET['subcategory']
+    $subcategory_path = $_GET['subcategory'];
     $urlpath = "?category=$category_path&subcategory=$subcategory_path";
     $courselist = getSubCategoryCourses($urlpath);
 }
