@@ -82,11 +82,15 @@ else{
 
 <script type="text/javascript">
     console.log(coursedetails);
+
     $('#viewModal').on('show.bs.modal', function(e) {
         var $modal = $(this),
-            id = $(e.relatedTarget).attr('data-courseid'),
-            coursedetail = coursedetails[id];
-        $('#course-content').html(coursedetail);
+            courseid = $(e.relatedTarget).attr('data-courseid'),
+            coursetitle = $(e.relatedTarget).attr('data-coursetitle'),
+            coursedetail = course_details[courseid];
+        //console.log('courseid =' + courseid);
+        document.getElementById('modal-title').innerHTML =coursetitle;
+        document.getElementById('course-content').innerHTML =coursedetail;
     });
 </script>
 </body>
